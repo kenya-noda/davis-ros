@@ -1,5 +1,6 @@
 #! /usr/bin/env python3
 
+from weather import units
 import weather.stations.davis_weatherLinkIP as weatherlink
 import rospy
 import time
@@ -43,6 +44,7 @@ class Davis(object):
                 pub.publish(msg)
             time.sleep(1)
         return
+
 
 if __name == "__main__":
     davis_weather = Davis(ip = "",port = 22222)
