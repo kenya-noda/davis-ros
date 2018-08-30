@@ -12,6 +12,8 @@ class Davis(object):
     def __init__(self, ip, port=22222):
         node_name = "davis"
         rospy.init_node(node_name)
+        self.ip = ip
+        self.port = port
 
     def pub_func(self):
         """
@@ -24,7 +26,7 @@ class Davis(object):
         msg = davis.msg.davis_weather()
         while not rospy.is_shutdown():
             # connect to Vantage Pro 2
-            vantage = weatherlink.VantagePro(ip, port)
+            vantage = weatherlink.VantagePro(self.ip, self.port)
             ret = vantage.parse()
             if ret["EOL"] == b'\n\r':
                 msg.press = ret["Pressure"]
