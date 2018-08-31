@@ -49,5 +49,5 @@ class Davis(object):
 
 
 if __name == "__main__":
-    davis_weather = Davis(ip = "",port = 22222)
+    davis_weather = Davis(ip = "172.20.0.40",port = 22222)
     davis_weather.pub_func()
