@@ -11,7 +11,7 @@ class Davis(object):
 
     def __init__(self, ip, port=22222):
         node_name = "davis"
-        rospy.init_node(node_name)
+        #rospy.init_node(node_name)
         self.ip = ip
         self.port = port
 
@@ -49,6 +49,6 @@ class Davis(object):
         return
 
 
-if __name == "__main__":
-    davis_weather = Davis(ip = "172.20.0.40",port = 22222)
-    davis_weather.pub_func()
+if __name__ == "__main__":
+    davis_weather = Davis(ip = "172.20.0.206",port = 22222)
+    davis_weather.print_func()
