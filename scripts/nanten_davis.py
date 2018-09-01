@@ -29,12 +29,12 @@ class Davis(object):
             vantage = weatherlink.VantagePro(self.ip, self.port)
             ret = vantage.parse()
             if ret["EOL"] == b'\n\r':
-                msg.press = ret["Pressure"]
-                msg.in_temp = ret["TempIn"]
+                msg.press = units.incConv_to_Pa(ret["Pressure"]) * 10 # to hpa
+                msg.in_temp = units.fahrenheit_to_kelvin(ret["TempIn"])
                 msg.in_humi = ret["HumIn"]
-                msg.out_temp = ret["TempOut"]
+                msg.out_temp = units.fahrenheit_to_kelvin(ret["TempOut"])
                 msg.out_humi = ret["HumOut"]
-                msg.wind_sp = ret["WindSpeed"]
+                msg.wind_sp = units.mph_to_m_sec(ret["WindSpeed"])
                 msg.wind_dir = ret["WindDir"]
                 msg.rain_rate = ret["RainRate"]
                 msg.error_check = "Normal"
