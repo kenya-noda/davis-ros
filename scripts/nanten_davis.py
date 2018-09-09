@@ -38,10 +38,10 @@ class Davis(object):
                 msg.wind_dir = ret["WindDir"]
                 msg.rain_rate = ret["RainRate"]
                 msg.error_check = "Normal"
-                print(msg)
+                rospy.loginfo(msg)
                 pub.publish(msg)
             else:
-                print("Can not access weather station")
+                rospy.logerr("Can not access weather station")
                 msg.error_check = "Error"
                 pub.publish(msg)
             time.sleep(1)
