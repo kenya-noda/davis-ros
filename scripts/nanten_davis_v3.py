@@ -16,14 +16,14 @@ class Davis(object):
         self.port = port
         
         # Publisher definition
-        self.pub_press = rospy.Publisher("davis_press", std_msgs.msg.Float64, queue_size = 1, latch = True)
-        self.pub_intemp = rospy.Publisher("davis_D_container_temp", std_msgs.msg.Float64, queue_size = 1, latch = True)
-        self.pub_inhumi = rospy.Publisher("davis_D_container_humi", std_msgs.msg.Float64, queue_size = 1, latch = True)
-        self.pub_outtemp = rospy.Publisher("davis_outside_temp", std_msgs.msg.Float64, queue_size = 1, latch = True)
-        self.pub_outhumi= rospy.Publisher("davis_outside_humi", std_msgs.msg.Float64, queue_size = 1, latch = True)
-        self.pub_windspeed = rospy.Publisher("davis_wind_speed", std_msgs.msg.Float64, queue_size = 1, latch = True)
-        self.pub_winddirection = rospy.Publisher("davis_wind_direction", std_msgs.msg.Float64, queue_size = 1, latch = True)
-        self.pub_rain = rospy.Publisher("davis_rain", std_msgs.msg.Float64, queue_size = 1, latch = True)
+        self.pub_press = rospy.Publisher("/davis_press", std_msgs.msg.Float32, queue_size = 1, latch = True)
+        self.pub_intemp = rospy.Publisher("/davis_D_temp", std_msgs.msg.Float32, queue_size = 1, latch = True)
+        self.pub_inhumi = rospy.Publisher("/davis_D_humi", std_msgs.msg.Float32, queue_size = 1, latch = True)
+        self.pub_outtemp = rospy.Publisher("/davis_outside_temp", std_msgs.msg.Float32, queue_size = 1, latch = True)
+        self.pub_outhumi= rospy.Publisher("/davis_outside_humi", std_msgs.msg.Float32, queue_size = 1, latch = True)
+        self.pub_windspeed = rospy.Publisher("/davis_wind_speed", std_msgs.msg.Float32, queue_size = 1, latch = True)
+        self.pub_winddirection = rospy.Publisher("/davis_wind_direction", std_msgs.msg.Float32, queue_size = 1, latch = True)
+        self.pub_rain = rospy.Publisher("/davis_rain", std_msgs.msg.Float32, queue_size = 1, latch = True)
 
     def pub_func(self):
         """
