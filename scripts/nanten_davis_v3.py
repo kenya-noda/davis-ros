@@ -45,7 +45,6 @@ class Davis(object):
                 self.pub_windspeed.publish(units.mph_to_m_sec(ret["WindSpeed"]))
                 self.pub_winddirection.publish(ret["WindDir"])
                 self.pub_rain.publish(ret["RainRate"])
-                print(msg)
             else:
                 print("Can not access weather station")
             time.sleep(1)
