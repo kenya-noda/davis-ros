@@ -46,7 +46,7 @@ class Davis(object):
                 self.pub_winddirection.publish(ret["WindDir"])
                 self.pub_rain.publish(ret["RainRate"])
             else:
-                print("Can not access weather station")
+                print("[DAVIS] Can not access weather station")
             time.sleep(1)
         return
 
