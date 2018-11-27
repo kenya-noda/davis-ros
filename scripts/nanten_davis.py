@@ -6,6 +6,8 @@ import rospy
 import time
 import davis.msg
 
+class NoDeviceException(Exception):
+    pass
 
 class Davis(object):
 
@@ -26,8 +28,13 @@ class Davis(object):
         msg = davis.msg.davis_weather()
         while not rospy.is_shutdown():
             # connect to Vantage Pro 2
-            vantage = weatherlink.VantagePro(self.ip, self.port)
-            ret = vantage.parse()
+            try:
+                vantage = weatherlink.VantagePro(self.ip, self.port)
+                ret = vantage.parse()
+            except NoDeviceException:
+                print("Can not access weather station")
+                continue
+
             if ret["EOL"] == b'\n\r':
                 msg.press = units.incConv_to_Pa(ret["Pressure"]) * 10 # to hpa
                 msg.in_temp = units.fahrenheit_to_kelvin(ret["TempIn"])
