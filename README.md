@@ -18,4 +18,6 @@
 			
 ## 実行
 	rosrun davis nanten_davis.py
-		
+	(necst_v2 の場合のスクリプト)
+	nanten_davis_v3.py は v3用のスクリプト
+	test_davis.py は気象情報を print 文で表示させるテストスクリプトです
